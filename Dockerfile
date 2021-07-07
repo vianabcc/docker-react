@@ -11,5 +11,6 @@ COPY --chown=node:node ./ ./
 RUN npm run build
 
 FROM nginx
+EXPOSE 80
 ARG owner
 COPY --from=static_builder --chown=$owner /home/node/app/build /usr/share/nginx/html
